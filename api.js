@@ -14,6 +14,7 @@ import {
   doc,
   query,
   where,
+  updateDoc
 } from "firebase/firestore/lite";
 
 const vansCollectionRef = collection(db, "vans");
@@ -45,6 +46,29 @@ export async function getHostVans(hostId) {
     throw error;
   }
 }
+
+export const rentVan = async (vanId, userId) => {
+  try {
+    if (!userId) {
+      throw new Error("User is not logged in.");
+    }
+
+    const vanDocRef = doc(db, "vans", vanId);
+
+    const vanSnapshot = await getDoc(vanDocRef);
+    if (!vanSnapshot.exists()) {
+      throw new Error("Van not found.");
+    }
+
+    await updateDoc(vanDocRef, { hostId: userId });
+
+    console.log(`Van ${vanId} is now rented by user ${userId}`);
+    return { success: true, message: "Van rented successfully!" };
+  } catch (error) {
+    console.error("Error renting van:", error.message);
+    throw error;
+  }
+};
 
 export const registerUser = async (email, password, name) => {
   try {
