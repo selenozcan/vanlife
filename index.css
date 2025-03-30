@@ -740,3 +740,73 @@ img.graph {
   color: #ff8c38;
   margin-right: 5px;
 }
+
+@media (max-width: 768px) {
+  header {
+    height: auto;
+    padding-block: 20px;
+    text-align: center;
+  }
+
+  header .site-logo {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  header a {
+    padding: 10px;
+  }
+
+  .home-container {
+    padding: 30px 15px;
+    text-align: center;
+  }
+
+  .home-container h1 {
+    font-size: 1.75rem;
+    line-height: 36px;
+  }
+
+  .van-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .van-detail img {
+    width: 100%;
+    height: auto;
+    margin-block: 30px;
+  }
+
+  .host-van-detail {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .host-van-detail > img {
+    margin: 0 0 20px 0;
+  }
+
+  .host-dashboard-earnings,
+  .host-dashboard-reviews,
+  .host-dashboard-vans .top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .login-form {
+    width: 100%;
+    padding-inline: 10px;
+  }
+
+  .about-page-cta {
+    margin-inline: 0;
+    padding-inline: 20px;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 14px;
+  }
+}
